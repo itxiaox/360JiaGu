@@ -1,0 +1,43 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    repositories {
+//        maven {url 'file://' + new File('F:\\maven\\repo').absolutePath}
+        maven {url 'file://F:/maven/repo'}
+        google()
+        jcenter()
+        //本地Maven仓库地址
+//        maven{url uri('./repository/')}
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.0.0"
+        classpath "com.github.itxiaox.plugin:jiagu:1.0.4"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+File file = new File("./myKeyStore.properties")
+ext.enableJiaGu = file.exists()
+if (enableJiaGu){
+    Properties properties = new Properties()
+    properties.load(new FileInputStream(file))
+    ext.keyStorePath = properties.getProperty("keyStorePath")
+    ext.keyStorePassword = properties.getProperty("keyStorePassword")
+    ext.keyAlias = properties.getProperty("keyAlias")
+    ext.keyAliasPassword = properties.getProperty("keyAliasPassword")
+    ext.firmAccountName = properties.getProperty("firmAccountName")
+    ext.firmAccountPwd = properties.getProperty("firmAccountPwd")
+    ext.jarToolsPath = properties.getProperty("jarToolsPath")
+}

@@ -1,0 +1,65 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.github.itxiaox.xplugin"
+        minSdkVersion 16
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    signingConfigs {
+        release {
+            storeFile file('F:\\xiao.jks')
+            storePassword 'xx123456'
+            keyAlias '我的密钥'
+            keyPassword 'Xx123456'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}
+
+if (rootProject.ext.enableJiaGu){
+    apply plugin:"com.itxiaox.plugin"
+    autoJiaGu {
+        userName rootProject.ext.firmAccountName
+        userPassword rootProject.ext.firmAccountPwd
+        keyStorePath rootProject.ext.keyStorePath
+        keyStorePassword rootProject.ext.keyStorePassword
+        keyAlias rootProject.ext.keyAlias
+        keyAliasPassword rootProject.ext.keyAliasPassword
+        jarToolsPath rootProject.ext.jarToolsPath
+    }
+}

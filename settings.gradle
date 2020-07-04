@@ -1,0 +1,3 @@
+rootProject.name = "XPlugin"
+include ':app'
+include ':360JiaGu'
