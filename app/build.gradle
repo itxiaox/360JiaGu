@@ -17,10 +17,10 @@ android {
     }
     signingConfigs {
         release {
-            storeFile file('F:\\xiao.jks')
-            storePassword 'xx123456'
-            keyAlias '我的密钥'
-            keyPassword 'Xx123456'
+            storeFile file(rootProject.ext.keyStorePath)
+            storePassword rootProject.ext.keyStorePath
+            keyAlias rootProject.ext.keyAlias
+            keyPassword rootProject.ext.keyAliasPassword
         }
     }
     buildTypes {
@@ -49,6 +49,8 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+//    implementation 'com.github.itxiaox.android-utils:android-utils:1.0.4'
 }
 
 if (rootProject.ext.enableJiaGu){
