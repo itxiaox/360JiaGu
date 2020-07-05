@@ -49,19 +49,19 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-
+//    implementation 'com.github.itxiaox:360JiaGu:v1.0.4'
 //    implementation 'com.github.itxiaox.android-utils:android-utils:1.0.4'
 }
-
-if (rootProject.ext.enableJiaGu){
-    apply plugin:"com.itxiaox.plugin"
-    autoJiaGu {
-        userName rootProject.ext.firmAccountName
-        userPassword rootProject.ext.firmAccountPwd
-        keyStorePath rootProject.ext.keyStorePath
-        keyStorePassword rootProject.ext.keyStorePassword
-        keyAlias rootProject.ext.keyAlias
-        keyAliasPassword rootProject.ext.keyAliasPassword
-        jarToolsPath rootProject.ext.jarToolsPath
-    }
-}
+//
+//if (rootProject.ext.enableJiaGu){
+//    apply plugin:"com.itxiaox.plugin"
+//    autoJiaGu {
+//        userName rootProject.ext.firmAccountName
+//        userPassword rootProject.ext.firmAccountPwd
+//        keyStorePath rootProject.ext.keyStorePath
+//        keyStorePassword rootProject.ext.keyStorePassword
+//        keyAlias rootProject.ext.keyAlias
+//        keyAliasPassword rootProject.ext.keyAliasPassword
+//        jarToolsPath rootProject.ext.jarToolsPath
+//    }
+//}

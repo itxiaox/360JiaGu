@@ -19,7 +19,7 @@ public class AutoJiaGuPlugin implements Plugin<Project> {
     @Override
     public void apply(Project project) {
         /**
-         * auto 是为了在使用的时候配置的
+         * autoJiaGu 是为了在使用的时候配置的
          * ConfigModel 是一个包含了配置信息的类
          * 这样我们就可以得到app中的配置信息
          */

@@ -2,7 +2,7 @@
 buildscript {
     repositories {
 //        maven {url 'file://' + new File('F:\\maven\\repo').absolutePath}
-        maven {url 'file://F:/maven/repo'}
+//        maven {url 'file://F:/maven/repo'}
         google()
         jcenter()
         //本地Maven仓库地址
@@ -10,15 +10,16 @@ buildscript {
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.0.0"
-        classpath "com.github.itxiaox.plugin:jiagu:1.0.4"
+//        classpath "com.github.itxiaox.plugin:jiagu:1.0.4"
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1' // Add this line
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
-}
 
+}
 allprojects {
     repositories {
+        maven { url "https://jitpack.io" }
         google()
         jcenter()
     }
